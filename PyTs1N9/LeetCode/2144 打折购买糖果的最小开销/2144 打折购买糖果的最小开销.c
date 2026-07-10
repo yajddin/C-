@@ -36,3 +36,21 @@ int main() {
     printf("%d",result);
     return 0;
 }
+
+// 如果不用qsort()
+// 简单排序算法：
+void sortDesc(int* cost, int costSize) {
+    for (int i = 0; i < costSize - 1; i++) {
+        int maxIndex = i;
+
+        for (int j = i + 1; j < costSize; j++) {
+            if (cost[j] > cost[maxIndex]) {
+                maxIndex = j;
+            }
+        }
+
+        int temp = cost[i];
+        cost[i] = cost[maxIndex];
+        cost[maxIndex] = temp;
+    }
+}
