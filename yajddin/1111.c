@@ -54,7 +54,6 @@ the third：
 分组之后用if去掉那个最后的数
 
 
-
 */
 #include <stdio.h>
 void money(int cost[],int len);
