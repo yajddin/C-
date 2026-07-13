@@ -60,10 +60,10 @@ void money(int cost[],int len);
 
 int main()
 {
-    int i;
-    int cost[5]={};
-    int len;
-    int sum=0;
+    int i; // 哪用到了 i
+    int cost[5]={}; // 直接写死一个静态数组，不要搞输入，每次运行不麻烦吗
+    int len; // int len = sizeof(cost) / sizeof(cost[0]);
+    int sum=0; // 哪用到了 sum
     scanf("%d",cost[5]);
     len=sizeof(cost)/sizeof(cost[0]);
     money(cost,len);//最后的printf因为逻辑不通，更换思路的时候删掉了
@@ -76,6 +76,8 @@ void money(int cost[],int len)
     {
         for(j=0;j<=len-1;j++)
         {
+            // cost[j+1] 直接越界了，假设len=3，j<=len-1，j越大循环到2，cost[j+1]不就是数组的第四位了吗
+            // 重新去看第二层循环中j的逻辑，冒泡排序的条件是错的
             if(cost[j]>cost[j+1])
             {
                 cost[j]=temp;
